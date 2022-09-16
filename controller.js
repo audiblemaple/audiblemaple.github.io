@@ -6,6 +6,8 @@ var width;
 var height;
 var cancel = false, real_time = false, running = false, sorted = false;
 
+var num_printer = -40
+
 function initialize(){
     // Start listening to events
     // Register an event listener to call the resizeCanvas() function
@@ -167,12 +169,17 @@ function redraw(val1, val2) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     for(let i = 0; i <= document.getElementById("arrRange").value; i++){
         context.fillStyle = "rgb(94,94,94)";
-        if(arr[i] === val1 || arr[i] === val2)
+        if(arr[i] === val1 || arr[i] === val2){
             context.fillStyle = "rgb(255,0,45)";
-
+        }
         //context.fillRect((canvas.width - width) - (i * width), canvas.height, width, arr[i]);
         context.fillRect(i * width, canvas.height, width, -arr[i]);
-
+        context.fillStyle = "rgb(14,3,3)";
+        context.font = "bold 20px Arial";
+        if(canvas.height - arr[i] !== 0)
+            context.fillText(arr[i], (i * width) + (width / 2) - 17, canvas.height - arr[i] - 1);
+        else
+            context.fillText(arr[i], (i * width) + (width / 2) - 17, canvas.height - arr[i] + 20);
     }
 }
 
