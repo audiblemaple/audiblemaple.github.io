@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="controller.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Sorting Algorithm Visualizer</title>
+</head>
+<body onload="initialize()">
+    <div class="header" id="top_menu">
+        <table id="buttons_and_text">
+            <tr>
+                <td>
+                    <div class="menu">
+                        <div class="dropdown" data-dropdown>
+                            <button class="alg" data-dropdown-button>Choose algorithm:</button>
+                            <div class="dropdown-menu alg-grid">
+                                <div>
+                                    <div class="Efficient"> <h1>Efficient Algorithms</h1></div>
+                                    <div class="Efficient-algs">
+                                        <p class="alg">Merge sort</p>
+                                        <p class="alg">Bucket sort</p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="NonEfficient"><h1>Non-efficient Algorithms</h1></div> <!--skip grid cell-->
+                                    <div class="dropdown-unefficient"></div>
+                                        <p class="alg">Bubble sort</p>
+                                        <p class="alg">Insertion sort</p>
+                                </div>
+
+                                <div>
+                                    <div class="dropdown-Osquare"><h1>O(n²)</h1></div>
+                                    <div class="dropdown-squared-algs">
+                                        <p class="alg">Bubble sort</p>
+                                        <p class="alg">Insertion sort</p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="dropdown-log"><h1>O(n·log(n))</h1></div>
+                                    <div class="dropdown-log-algs">
+                                        <p class="alg">Merge sort</p>
+                                        <p class="alg">Bucket sort</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        <a id="alg-txt"></a>
+                    </div>
+                </td>
+
+                <td>
+                    <button type="button" id="run" onclick="check_run()">Run algorithm</button>
+                </td>
+
+                <td class="text">
+                        Input size: <a class="text" id="size"></a>
+                </td>
+
+                <td>
+                    <div class="slidecontainer">
+                        <input type="range", min="20" max="100", value="60" class="slider" id="arrRange">
+                    </div>
+                </td>
+
+                <td class="text">
+                    Speed: <a class="text" id="alg_speed"></a>
+                </td>
+
+                <td>
+                    <div class="slidecontainer">
+                        <input type="range", min="25" max="100", value="100" class="slider" id="speed">
+                    </div>
+                </td>
+
+                <td>
+                    <button type="button" id="real_time" onclick="set_real_time()">Real Time</button>
+                </td>
+
+                <td>
+                    <button type="button" id="recreate_array" onclick="makeArray(), redraw()">Refresh array</button>
+                </td>
+
+                <td>
+                    <button type="button" id="cancel_run" onclick="cancel_run()">Cancel run</button>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+</html>

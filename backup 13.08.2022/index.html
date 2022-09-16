@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="controller.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Sorting Algorithm Visualizer</title>
+</head>
+<body onload="initialize()">
+    <div class="header" id="top_menu">
+
+        <table id="buttons_and_text">
+            <tr>
+                <td>
+                    <p>
+                        Algorithm:
+                    </p>
+                </td>
+
+                <td>
+                    <select name="algorithms" id="alg_select">
+                        <option value="Bubble sort">Bubble sort</option>
+                        <option value="Insertion sort">Insertion sort</option>
+                        <option value="Merge sort">Merge sort</option>
+                        <option value="Bucket sort">Bucket sort</option>
+                    </select>
+                </td>
+
+                <td>
+                    <p>
+                        Input size:
+                    </p>
+
+                </td>
+
+                <td>
+                    <p class="text" id="size"></p>
+                </td>
+
+                <td>
+                    <div class="slidecontainer">
+                        <input type="range", min="20" max="100", value="60" class="slider" id="arrRange">
+                    </div>
+                </td>
+
+                <td>
+                    <p>
+                        Speed:
+                    </p>
+
+                </td>
+
+                <td>
+                    <p class="text" id="alg_speed"></p>
+                </td>
+
+                <td>
+                    <div class="slidecontainer">
+                        <input type="range", min="25" max="100", value="100" class="slider" id="speed">
+                    </div>
+                </td>
+
+                <td>
+                    <button type="button" id="real_time" onclick="set_real_time()">Real Time</button>
+                </td>
+
+                <td>
+                    <button type="button" id="run" onclick="check_run()"></button>
+                </td>
+
+                <td>
+                    <button type="button" id="recreate_array" onclick="makeArray(), redraw()">Refresh array</button>
+                </td>
+
+                <td>
+                    <button type="button" id="cancel_run" onclick="cancel_run()">cancel run</button>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+</html>

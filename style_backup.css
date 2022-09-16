@@ -1,0 +1,131 @@
+
+:root{
+    --background: #ffe7fb;
+}
+
+
+/* TOP MENU */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    margin: 0;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+
+#top_menu{
+    background-color: var(--background);
+    height: 50px;
+}
+
+select{
+    border: 0px;
+    outline: none;
+    background-color: var(--background);
+    height: 100%;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 40px;
+    font-size: 16px;
+}
+
+#buttons_and_text{
+    border: 0px;
+    font-size: 17px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+p{
+    width: auto;
+    user-select: none;
+    margin-right: 5px;
+}
+
+.text{
+    width: 40px;
+    text-align: left;
+}
+
+.slidecontainer{
+    width: 100%;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: 155px; /* here is the width*/
+    height: 6px; /*here is the height */
+    border-radius: 5px;
+    background: aqua;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity .2s;
+    margin-right: 20px;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: azure;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button{
+    width: 160px;
+    height: 35px;
+    border: 0px;
+    border-radius: 10px;
+    background: greenyellow;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#real_time{
+    alignment: left;
+    width: 75px;
+}
+
+/* CANVAS */
+
+#canvas{
+    border: 2px solid black;
+    margin-left: 20px;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

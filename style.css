@@ -1,0 +1,177 @@
+
+:root{
+    --background: rgba(155, 155, 155, 0.38);
+    --buttons: rgba(176, 176, 176, 0.98);
+    --shadow: rgba(100, 100, 100, 0.64);
+}
+
+/* TOP MENU */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 23px;
+    font-family: sans-serif;
+    /*font-family: "Roboto Light";       AN ALTERNATIVE FONT...*/
+}
+
+
+html, body{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+#buttons_and_text{
+    width: auto;
+}
+
+#top_menu{
+    background-color: var(--background);
+    /*height: 60px;*/
+    height: fit-content;
+}
+
+table{
+    height: auto;
+}
+
+td{
+    display: inline-block;
+    margin-right: 20px;
+    user-select: none;
+}
+
+.menu{
+    display: flex;
+    align-items: baseline;
+    padding: .5rem;
+    /*width: 310px;*/
+    width: fit-content;
+    gap: .5rem;
+}
+
+.alg{
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropdown.active > .alg, .alg:hover{
+    color: #bbbbbb;
+}
+
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position: absolute;
+    left: 0;
+    top: calc(100% + .50rem); /* change so it will start from the bottom of the marked menu*/
+    background-color: white;
+    padding: .75rem;
+    border-radius: .50rem;
+    box-shadow: 5px 5px 10px 0 var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-5px);
+    transition: opacity 120ms ease-in-out, transform 120ms ease-in-out;
+}
+
+.dropdown.active > .alg + .dropdown-menu{
+    opacity: 1;
+    transform: translateY(10px);
+    pointer-events: auto;
+}
+
+.alg-grid{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+
+.dropdown-log-algs, .dropdown-squared-algs{
+    display: flex;
+    flex-direction: column;
+    gap: .20rem;
+}
+
+.text{
+    text-align: left;
+    width: 8rem;
+}
+
+.slidecontainer{
+    width: 100%;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: auto;
+    height:  8px; /*here is the height */
+    border-radius: 5px;
+    background: aqua;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: lightseagreen;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb{
+    width: auto;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button{
+    padding: 8px 16px 8px;
+    width: fit-content;
+    height: 50%;
+    border: none;
+    border-radius: 10px;
+    background: var(--buttons);
+    cursor: pointer;
+}
+
+/* CANVAS */
+#canvas{
+    margin-left: 20px;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
