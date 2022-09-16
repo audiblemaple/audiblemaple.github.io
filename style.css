@@ -1,6 +1,6 @@
 
 :root{
-    --background: rgba(155, 155, 155, 0.38);
+    --background: rgba(125, 125, 125, 0.38);
     --buttons: rgba(176, 176, 176, 0.98);
     --shadow: rgba(100, 100, 100, 0.64);
 }
@@ -36,9 +36,11 @@ table{
 }
 
 td{
+    border: 1px solid black;
+    margin-right: 25px;
     display: inline-block;
-    margin-right: 20px;
     user-select: none;
+    width: auto;
 }
 
 .menu{
@@ -60,7 +62,9 @@ td{
 }
 
 .dropdown.active > .alg, .alg:hover{
-    color: #bbbbbb;
+    transition-duration: .3s;
+    color: ghostwhite;
+    outline-color: greenyellow;
 }
 
 
@@ -102,12 +106,12 @@ td{
 
 .text{
     text-align: left;
-    width: 8rem;
+    width: 100px;
 }
 
-.slidecontainer{
-    width: 100%;
-}
+/*!*.slidecontainer{*!  commented out because it did no difference*/
+/*    width: 100%;*/
+/*}*/
 
 .slider{
     -webkit-appearance: none;
@@ -124,8 +128,8 @@ td{
 .slider::-webkit-slider-thumb{
     -webkit-appearance: none;
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: lightseagreen;
     cursor: pointer;
@@ -139,7 +143,7 @@ td{
 }
 
 .slider::-webkit-slider-thumb:hover{
-    transform: scale3d(120%, 120%, 120%);
+    transform: scale3d(105%, 105%, 105%);
     background: var(--buttons);
     box-shadow: 0 0 0 3px ghostwhite, inset 0 0 0 0 #fff;
     transition-duration: .2s;
@@ -150,7 +154,7 @@ td{
     width: fit-content;
     height: 50%;
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     background: var(--buttons);
     cursor: pointer;
 }
@@ -159,9 +163,9 @@ td{
     border-radius: 100px;
     display: inline-block;
     background: var(--buttons);
+    transform: scale3d(93%, 93%, 93%);
     box-shadow: 0 0 0 4px ghostwhite, inset 0 0 0 0 ghostwhite;
-    /*box-shadow: 0px 0px 10px 10px black, inset 0 0 0 0px #fff;*/
-    transition-duration: .7s;
+    transition-duration: .4s;
 }
 
 /* CANVAS */
