@@ -140,6 +140,7 @@ function resizeCanvas() {
 }
 
 // reprints alg speed and arr range on slider input
+// TODO: when real time active changing the speed does nothing.
 function reprint(){
     document.getElementById('size').textContent = document.getElementById('arrRange').value;
     recalculate_width_height();
