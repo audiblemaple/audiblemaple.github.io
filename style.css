@@ -37,10 +37,12 @@ table{
 
 /* design of the menu cells*/
 td{
+    /*border: 1px solid blue;*/
     margin-right: 25px;
     display: inline-block;
     user-select: none;
-    width: auto;
+    /*width: auto;*/
+    width: max-content;
 }
 
 /*////  this piece is for the sliders numbers ////////////////////*/
@@ -130,6 +132,8 @@ td{
 /*    width: 100%;*/
 /*}*/
 
+
+/*  slider code ////////////////////////////////////////////////////*/
 .slider{
     -webkit-appearance: none;
     width: auto;
@@ -166,7 +170,10 @@ td{
     box-shadow: 0 0 0 3px ghostwhite, inset 0 0 0 0 ghostwhite;
     transition-duration: .2s;
 }
+/*//////////////////////////////////////////////////////////*/
 
+
+/* buttons code ///////////////////////////////////////////*/
 .custom_buttons{
     padding: 8px 16px 8px;
     width: fit-content;
@@ -175,18 +182,21 @@ td{
     border-radius: 12px;
     background: var(--buttons);
     cursor: pointer;
+    font-size: 21px;
     transition-duration: .4s;
 }
 
 .custom_buttons:hover{
     border-radius: 100px;
     display: inline-block;
-    font-size: 21px;
     background: var(--buttons);
-    transform: scale3d(93%, 93%, 93%);
     box-shadow: 0 0 0 4px ghostwhite, inset 0 0 0 0 ghostwhite;
     transition-duration: .4s;
+
+    padding: 8px 25px 8px 25px;
+    font-size: 24px;
 }
+/*/////////////////////////////////////////////////////////*/
 
 /* CANVAS */
 #canvas{
