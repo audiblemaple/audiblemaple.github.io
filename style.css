@@ -28,7 +28,6 @@ html, body{
 
 #top_menu{
     background-color: var(--background);
-    /*height: 60px;*/
     height: fit-content;
 }
 
@@ -46,8 +45,7 @@ td{
     display: flex;
     align-items: baseline;
     padding: .5rem;
-    /*width: 310px;*/
-    width: fit-content;
+    width: 340px;
     gap: .5rem;
 }
 
@@ -140,14 +138,30 @@ td{
     cursor: pointer;
 }
 
-button{
+.slider::-webkit-slider-thumb:hover{
+    transform: scale3d(120%, 120%, 120%);
+    background: var(--buttons);
+    box-shadow: 0 0 0 3px ghostwhite, inset 0 0 0 0 #fff;
+    transition-duration: .2s;
+}
+
+.custom_buttons{
     padding: 8px 16px 8px;
     width: fit-content;
     height: 50%;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     background: var(--buttons);
     cursor: pointer;
+}
+
+.custom_buttons:hover{
+    border-radius: 100px;
+    display: inline-block;
+    background: var(--buttons);
+    box-shadow: 0 0 0 4px ghostwhite, inset 0 0 0 0 ghostwhite;
+    /*box-shadow: 0px 0px 10px 10px black, inset 0 0 0 0px #fff;*/
+    transition-duration: .7s;
 }
 
 /* CANVAS */
@@ -155,23 +169,3 @@ button{
     margin-left: 20px;
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

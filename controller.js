@@ -144,6 +144,9 @@ function reprint(){
     document.getElementById('size').textContent = document.getElementById('arrRange').value;
     recalculate_width_height();
 
+    if(document.getElementById('alg_speed').textContent === "Real Time"){
+        return;
+    }
     document.getElementById('alg_speed').textContent = document.getElementById('speed').value + "%";
     real_time = false;
 }
@@ -235,7 +238,6 @@ const sleep = (milliseconds) => {
 //      * if running and cancel are active quit the function run.
 // TODO: find better way to control the speed of execution:  status: pretty okay...
 async function bubble_sort(){
-    let temp;
     for(let i = 0 - 1; i < arr.length - 1; i ++ ){
         for(let j = 0 - 1; j <= arr.length - 1; j ++){
             if(cancel)
@@ -302,8 +304,8 @@ async function merge(left, mid, right){
         }
     }
 
-    var i = 0;
-    var j = 0
+    i = 0;
+    j = 0
     var k = left;
 
     while(i < num1 && j < num2){
@@ -469,41 +471,9 @@ async function bucket_sort(){
 
 
 // TODO: FIX button spaces...
-// TODO: when in real time mode, changing the array size resets the speed.
 
-
-// TODO: FIX RUN ALGORITHM BUTTON!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // OTHER TO,DO
 // TODO: make a better font
 // TODO: improve UI
-
-
-// <td>
-//     <div className="slidecontainer">
-//         <input type="range", min="20" max="100", value="60" class="slider" id="arrRange">
-//     </div>
-// </td>
-//
-// <td className="text">
-//     Speed: <a className="text" id="alg_speed"></a>
-// </td>
-//
-// <td>
-//     <div className="slidecontainer">
-//         <input type="range", min="25" max="100", value="100" class="slider" id="speed">
-//     </div>
-// </td>
-//
-// <td>
-//     <button type="button" id="real_time" onClick="set_real_time()">Real Time</button>
-// </td>
-//
-// <td>
-//     <button type="button" id="recreate_array" onClick="makeArray(), redraw()">Refresh array</button>
-// </td>
-//
-// <td>
-//     <button type="button" id="cancel_run" onClick="cancel_run()">Cancel run</button>
-// </td>
 
