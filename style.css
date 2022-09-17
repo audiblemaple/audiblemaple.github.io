@@ -195,6 +195,31 @@ td{
     padding: 8px 25px 8px 25px;
     font-size: 24px;
 }
+
+#run_algorithm_button{
+    text-align: center;
+    width: 200px;
+    height: auto;
+    margin-right: 5px;
+}
+#real_time_button{
+    text-align: center;
+    width: 159px;
+    height: auto;
+    margin: 0;
+}
+#refresh_array_button{
+    text-align: center;
+    width: 196px;
+    height: auto;
+    margin: 0;
+}
+#cancel_run_button{
+    text-align: center;
+    width: 169px;
+    height: auto;
+    margin: 0;
+}
 /*/////////////////////////////////////////////////////////*/
 
 /* CANVAS */
