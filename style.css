@@ -192,7 +192,6 @@ td{
     background: var(--buttons);
     box-shadow: 0 0 0 4px ghostwhite, inset 0 0 0 0 ghostwhite;
     transition-duration: .4s;
-
     padding: 8px 25px 8px 25px;
     font-size: 24px;
 }

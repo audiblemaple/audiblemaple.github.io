@@ -6,8 +6,6 @@ var width;
 var height;
 var cancel = false, real_time = false, running = false, sorted = false;
 
-var num_printer = -40
-
 function initialize(){
     // Start listening to events
     // Register an event listener to call the resizeCanvas() function
@@ -15,12 +13,20 @@ function initialize(){
     window.addEventListener('resize', resizeCanvas, false);
     window.addEventListener('resize', recalculate_width_height, false);
 
-    // event listeners for array size
-    document.getElementById('arrRange').addEventListener('input', reprint, false);
-    document.getElementById('arrRange').addEventListener('input', makeArray, false);
-    document.getElementById('arrRange').addEventListener('input', redraw, false);
 
-    document.getElementById('speed').addEventListener('input', reprint, false);
+    // listen for changes in algorithm speed
+    document.getElementById('speed').addEventListener('input', e =>{
+        document.getElementById('alg_speed').textContent = document.getElementById('speed').value + "%";
+    }, false);
+
+
+    // listen for changes in array size
+    document.getElementById('arrRange').addEventListener('input', e => {
+        document.getElementById('size').textContent = document.getElementById('arrRange').value;
+        recalculate_width_height();
+        makeArray();
+        redraw();
+    }, false);
 
 
     // event listener for algorithm selection in the run button
@@ -49,9 +55,6 @@ function initialize(){
             document.getElementById('alg-txt').innerText = evt.target.innerText;
         }, false);
     }
-
-    // set default size and speed values
-    reprint();
 
     // Draw rects for the first time.
     resizeCanvas();
@@ -130,35 +133,20 @@ function flip_functions(){
 
 
 // UI FUNCTIONS
-// Runs each time the DOM window resize event fires.
+// Runs each time the window resize event fires.
 // Resets the canvas dimensions to match window,
 // then draws the new borders accordingly.
 function resizeCanvas() {
     canvas.width = window.innerWidth - 40;
     canvas.height = window.innerHeight - 55;
-    //document.getElementById("arrRange").setAttribute("max", (canvas.height / 10).toString()); // allows to change the
     recalculate_width_height()
     redraw();
-}
-
-// reprints alg speed and arr range on slider input
-// TODO: when real time active changing the speed does nothing.
-function reprint(){
-    document.getElementById('size').textContent = document.getElementById('arrRange').value;
-    recalculate_width_height();
-
-    if(document.getElementById('alg_speed').textContent === "Real Time"){
-        return;
-    }
-    document.getElementById('alg_speed').textContent = document.getElementById('speed').value + "%";
-    real_time = false;
 }
 
 // prints the selected algorithm in the button text
 function alg_select(algo){
     document.getElementById("run").innerText = "run " + algo.innerText + " algorithm";
 }
-
 
 
 // DRAW FUNCTIONS
@@ -175,21 +163,29 @@ function redraw(val1, val2) {
         //context.fillRect((canvas.width - width) - (i * width), canvas.height, width, arr[i]);
         context.fillRect(i * width, canvas.height, width, -arr[i]);
         context.fillStyle = "rgb(14,3,3)";
-        context.font = "bold 20px Arial";
-        if(canvas.height - arr[i] !== 0)
-            context.fillText(arr[i], (i * width) + (width / 2) - 17, canvas.height - arr[i] - 1);
-        else
-            context.fillText(arr[i], (i * width) + (width / 2) - 17, canvas.height - arr[i] + 20);
+        context.font = "bold 21px Arial";
+        draw_text(arr[i], i);
     }
 }
 
-async function complete(){
+function complete(){
     for(let i = 0; i <= document.getElementById("arrRange").value; i++){
-        await sleep(1);
+        sleep(1);
         context.fillStyle = "rgb(49,197,0)";
         //context.fillRect(i * width, canvas.height, width, arr[arr.length  - 1 - i])
         context.fillRect(i * width, canvas.height, width, -arr[i])
+        context.fillStyle = "rgb(14,3,3)";
+        context.font = "bold 21px Arial";
+        draw_text(arr[i], i);
     }
+}
+
+function draw_text(num, i){
+    if(canvas.height - num !== 0){
+        context.fillText(num, (i * width) + (width / 2) - 17, canvas.height - num - 2);
+        return
+    }
+    context.fillText(num, (i * width) + (width / 2) - 17, canvas.height - num + 20);
 }
 
 // SORTING ALGORITHMS
@@ -235,7 +231,6 @@ async function check_run(){
     running = false;
 }
 
-// TODO: implement cancel in a better way.
 
 // sleep functionality
 const sleep = (milliseconds) => {
@@ -244,7 +239,6 @@ const sleep = (milliseconds) => {
 
 // classic bubble sort algorithm
 //      * if running and cancel are active quit the function run.
-// TODO: find better way to control the speed of execution:  status: pretty okay...
 async function bubble_sort(){
     for(let i = 0 - 1; i < arr.length - 1; i ++ ){
         for(let j = 0 - 1; j <= arr.length - 1; j ++){
@@ -275,8 +269,7 @@ function swap(j){
 }
 
 // merge function
-// TODO: change the realtime with continue control flow
-// TODO: change the wait times
+// TODO: change the realtime with continue control flow   <========= ???
 async function merge(left, mid, right){
     if (cancel)
         return;
@@ -473,12 +466,12 @@ async function bucket_sort(){
 }
 
 
-//////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 // TODO: refactor all the code !!!!!!!!!!!!!!!
-//////////////////////////////////////////////
-
-
-// TODO: FIX button spaces...
+// TODO: implement cancel in a better way.
+// TODO: consider removing the real time completely
+// TODO: improve waiting times
+////////////////////////////////////////////////////////////////////////
 
 
 // OTHER TO,DO
